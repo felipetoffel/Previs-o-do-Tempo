@@ -10,10 +10,13 @@ import UIKit
 
 class cell: UITableViewCell {
     
-    @IBOutlet weak var imgIcon: UIImageView!
+    @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var namePlace: UILabel!
-    @IBOutlet weak var grausCelsos: UILabel!
-    @IBOutlet weak var placeDescription: UILabel!
+    @IBOutlet weak var celsius: UILabel!
+    @IBOutlet weak var descriptionPlace: UILabel!
     
+    func setSeletected(_selected: Bool, animated: Bool) {
+        super.setSelected(_selected, animated: animated)
+    }
     
 }

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="111" id="LDk-1t-CEu" customClass="cell" customModule="Weather_Forecast" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityPlace" rowHeight="111" id="LDk-1t-CEu" customClass="cell" customModule="Weather_Forecast" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="111"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LDk-1t-CEu" id="EA1-Hi-Zio">
@@ -53,10 +53,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="grausCelsos" destination="dOC-C6-QZl" id="od4-dm-FiX"/>
-                                    <outlet property="imgIcon" destination="lKT-lL-xn8" id="6aN-lD-eMr"/>
-                                    <outlet property="namePlace" destination="Jl3-Dz-pqh" id="UAK-YC-nY1"/>
-                                    <outlet property="placeDescription" destination="Tfc-WP-Yha" id="F09-oz-UAX"/>
+                                    <outlet property="celsius" destination="dOC-C6-QZl" id="72M-37-I69"/>
+                                    <outlet property="descriptionPlace" destination="Tfc-WP-Yha" id="yWy-fE-eNg"/>
+                                    <outlet property="imgView" destination="lKT-lL-xn8" id="gWm-ot-Y1O"/>
+                                    <outlet property="namePlace" destination="Jl3-Dz-pqh" id="YsN-c7-VjC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
