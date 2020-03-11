@@ -61,7 +61,7 @@
 		AB315FC72416692F00A1805C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB315FD824167FCA00A1805C /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		AB315FDA241681E600A1805C /* cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
-		AB315FDC2417CFC100A1805C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		AB315FDC2417CFC100A1805C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AB315FDE2417E25400A1805C /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		AE1176DF84937382DAB29666 /* Pods_Weather_Forecast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather_Forecast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF80B0ECA60EB2EA282FA057 /* Pods_Weather_ForecastTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather_ForecastTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,7 +154,6 @@
 				AB315FAC2416692E00A1805C /* Assets.xcassets */,
 				AB315FAE2416692E00A1805C /* LaunchScreen.storyboard */,
 				AB315FB12416692E00A1805C /* Info.plist */,
-				AB315FDE2417E25400A1805C /* TableViewController.swift */,
 			);
 			path = "Weather Forecast";
 			sourceTree = "<group>";
@@ -196,6 +195,7 @@
 		AB315FD72416751300A1805C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AB315FDE2417E25400A1805C /* TableViewController.swift */,
 				AB315FA72416692900A1805C /* ViewController.swift */,
 			);
 			path = Controller;

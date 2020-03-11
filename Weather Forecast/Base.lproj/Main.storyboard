@@ -12,7 +12,7 @@
         <!--Table View Controller-->
         <scene sceneID="wiG-wz-oUh">
             <objects>
-                <tableViewController id="zPW-sD-82f" sceneMemberID="viewController">
+                <tableViewController id="zPW-sD-82f" customClass="TableViewController" customModule="Weather_Forecast" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CKo-fU-eC4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,10 +53,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="celsius" destination="dOC-C6-QZl" id="72M-37-I69"/>
-                                    <outlet property="descriptionPlace" destination="Tfc-WP-Yha" id="yWy-fE-eNg"/>
-                                    <outlet property="imgView" destination="lKT-lL-xn8" id="gWm-ot-Y1O"/>
-                                    <outlet property="namePlace" destination="Jl3-Dz-pqh" id="YsN-c7-VjC"/>
+                                    <outlet property="celsius" destination="dOC-C6-QZl" id="xwS-3N-LNQ"/>
+                                    <outlet property="descriptionPlace" destination="Tfc-WP-Yha" id="Z7q-EN-jrS"/>
+                                    <outlet property="imgView" destination="lKT-lL-xn8" id="Rg5-Fy-zhU"/>
+                                    <outlet property="namePlace" destination="Jl3-Dz-pqh" id="q1V-pm-zQ0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
