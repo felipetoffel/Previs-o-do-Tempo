@@ -14,7 +14,7 @@ import SwiftyJSON
 class TableViewController: UITableViewController {
     
     var places: [Place] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCity()
@@ -62,52 +62,59 @@ class TableViewController: UITableViewController {
 
     func loadCity(){
         listCity(city: "São Paulo") {
-            (response : Data) in
-            let object = try? JSON(data:response)
-            let nomePlace = (object!["name"] as AnyObject? as? String) ?? ""
-            let descrip = (object!["weather"]["description"] as AnyObject? as? String) ?? ""
-            let icon = (object!["weather"]["icon"] as AnyObject? as? String) ?? ""
-            let temperatura = (object!["main"]["temp"] as AnyObject? as? String) ?? ""
-            print("como assim?")
-            let place1 = Place(name: nomePlace, placeDescription: descrip, icon: icon, temperature: temperatura)
-            self.places += [place1]
+            (response : Dictionary<String, Any>)in
+            let nomePlace = response["name"] as? String ?? ""
+            debugPrint(response["weather"])
+            let weather = response["weather"] as? [NSObject?]
+            debugPrint(weather!)
+            // let descrip = weather[0]["description"] ?? ""
+            //let icon = weather[0]["icon"] ?? ""
+            //let icon2 = "http://openweathermap.org/img/wn/\(icon)"
+            let main = response["main"] as! Dictionary<String,Any>
+            let temperatura = main["temp"] as? String ?? ""
+            //let place1 = Place(name: nomePlace, placeDescription: descrip, icon: icon, temperature: temperatura)
+            //self.places += [place1]
             
         }
-        
+        /*
         listCity(city: "Blumenau") {
-            (response : Data) in
-            let object = try? JSON(data:response)
-            let nomePlace = (object!["name"] as AnyObject? as? String) ?? ""
-            let descrip = (object!["weather"]["description"] as AnyObject? as? String) ?? ""
-            let icon = (object!["weather"]["icon"] as AnyObject? as? String) ?? ""
-            let temperatura = (object!["main"]["temp"] as AnyObject? as? String) ?? ""
-            print("como assim?")
-            let place2 = Place(name: nomePlace, placeDescription: descrip, icon: icon, temperature: temperatura)
+            (response : Dictionary<String, Any>) in
+            let nomePlace = response["name"] as? String ?? ""
+            let weather = response["weather"]
+            debugPrint(weather)
+            //let descrip = weather[0]["description"] ?? ""
+            //let icon = weather[0]["icon"] ?? ""
+            let icon2 = "http://openweathermap.org/img/wn/\(icon)"
+            let main = response["main"] as! Dictionary<String,Any>
+            let temperatura = main["temp"] as? String ?? ""
+            //let place2 = Place(name: nomePlace, placeDescription: descrip, icon: icon, temperature: temperatura)
             self.places += [place2]
         }
         
         
         listCity(city: "Florianopolis") {
-            (response : Data) in
-            let object = try? JSON(data:response)
-            let nomePlace = (object!["name"] as AnyObject? as? String) ?? ""
-            let descrip = (object!["weather"]["description"] as AnyObject? as? String) ?? ""
-            let icon = (object!["weather"]["icon"] as AnyObject? as? String) ?? ""
-            let temperatura = (object!["main"]["temp"] as AnyObject? as? String) ?? ""
-            print("como assim?")
+            (response : Dictionary<String, Any>) in
+            let nomePlace = response["name"] as? String ?? ""
+            let weather = response["weather"] as!
+            let descrip = weather[0]["description"] ?? ""
+            let icon = weather[0]["icon"] ?? ""
+            let icon2 = "http://openweathermap.org/img/wn/\(icon)"
+            let main = response["main"] as! Dictionary<String,Any>
+            let temperatura = main["temp"] as? String ?? ""
             let place3 = Place(name: nomePlace, placeDescription: descrip, icon: icon, temperature: temperatura)
             self.places += [place3]
             
         }
-        
-        
+ */
+        tableView.reloadData()
     }
     
-    func listCity (city: String, completion: @escaping (_ response: Data) -> Void){
+    func listCity (city: String, completion: @escaping (Dictionary<String, Any>) -> Void){
         let cidade = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let url = "http://api.openweathermap.org/data/2.5/weather?q=\(cidade!)&appid=7c189bba4bca238455291a386f2294b5"
+        let url = "https://api.openweathermap.org/data/2.5/weather?q=\(cidade!)&appid=7c189bba4bca238455291a386f2294b5"
         Alamofire.request(url).responseJSON{ response in
-            completion(response.result as! Data)
+            let value = response.result.value
+            completion(value as! Dictionary<String, Any>)
             //let name = "q?"
         }
     }

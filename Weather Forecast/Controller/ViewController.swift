@@ -68,7 +68,7 @@ class ViewController: UITableViewController {
     }
 
     func listCity (city: String, completion: @escaping (_ response: Data) -> Void){
-        let url = "http://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=7c189bba4bca238455291a386f2294b5"
+        let url = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=7c189bba4bca238455291a386f2294b5"
         Alamofire.request(url).responseJSON{ response in
             completion(response.result.value as! Data)
             //let name = "q?"
