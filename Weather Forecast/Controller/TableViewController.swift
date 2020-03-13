@@ -18,6 +18,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCity()
+        self.tableView.reloadData()
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -32,7 +33,7 @@ class TableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         
-        return 1
+        return places.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,49 +65,52 @@ class TableViewController: UITableViewController {
         listCity(city: "São Paulo") {
             (response : Dictionary<String, Any>)in
             let nomePlace = response["name"] as? String ?? ""
-            debugPrint(response["weather"])
-            let weather = response["weather"] as? [NSObject?]
-            debugPrint(weather!)
-            // let descrip = weather[0]["description"] ?? ""
-            //let icon = weather[0]["icon"] ?? ""
-            //let icon2 = "http://openweathermap.org/img/wn/\(icon)"
-            let main = response["main"] as! Dictionary<String,Any>
-            let temperatura = main["temp"] as? String ?? ""
-            //let place1 = Place(name: nomePlace, placeDescription: descrip, icon: icon, temperature: temperatura)
-            //self.places += [place1]
-            
-        }
-        /*
-        listCity(city: "Blumenau") {
-            (response : Dictionary<String, Any>) in
-            let nomePlace = response["name"] as? String ?? ""
-            let weather = response["weather"]
-            debugPrint(weather)
-            //let descrip = weather[0]["description"] ?? ""
-            //let icon = weather[0]["icon"] ?? ""
+            let weather = response["weather"] as! NSArray
+            let weatherDict = weather[0] as! Dictionary<String,Any>
+            let descriptions = weatherDict["description"] as? String ?? ""
+            let icon = weatherDict["icon"] ?? ""
             let icon2 = "http://openweathermap.org/img/wn/\(icon)"
             let main = response["main"] as! Dictionary<String,Any>
             let temperatura = main["temp"] as? String ?? ""
-            //let place2 = Place(name: nomePlace, placeDescription: descrip, icon: icon, temperature: temperatura)
+            let place1 = Place(name: nomePlace, placeDescription: descriptions, icon: icon2, temperature: temperatura)
+            self.places += [place1]
+            
+        }
+        
+        listCity(city: "Blumenau") {
+            (response : Dictionary<String, Any>)in
+            let nomePlace = response["name"] as? String ?? ""
+            let weather = response["weather"] as! NSArray
+            let weatherDict = weather[0] as! Dictionary<String,Any>
+            let descriptions = weatherDict["description"] as? String ?? ""
+            let icon = weatherDict["icon"] ?? ""
+            let icon2 = "http://openweathermap.org/img/wn/\(icon)"
+            let main = response["main"] as! Dictionary<String,Any>
+            let temperatura = main["temp"] as? String ?? ""
+            let place2 = Place(name: nomePlace, placeDescription: descriptions, icon: icon2, temperature: temperatura)
             self.places += [place2]
+            
         }
         
         
         listCity(city: "Florianopolis") {
-            (response : Dictionary<String, Any>) in
+            (response : Dictionary<String, Any>)in
             let nomePlace = response["name"] as? String ?? ""
-            let weather = response["weather"] as!
-            let descrip = weather[0]["description"] ?? ""
-            let icon = weather[0]["icon"] ?? ""
+            let weather = response["weather"] as! NSArray
+            let weatherDict = weather[0] as! Dictionary<String,Any>
+            let descriptions = weatherDict["description"] as? String ?? ""
+            let icon = weatherDict["icon"] ?? ""
             let icon2 = "http://openweathermap.org/img/wn/\(icon)"
             let main = response["main"] as! Dictionary<String,Any>
             let temperatura = main["temp"] as? String ?? ""
-            let place3 = Place(name: nomePlace, placeDescription: descrip, icon: icon, temperature: temperatura)
+            let place3 = Place(name: nomePlace, placeDescription: descriptions, icon: icon2, temperature: temperatura)
             self.places += [place3]
             
+            
         }
- */
-        tableView.reloadData()
+ 
+        
+        print(places.count)
     }
     
     func listCity (city: String, completion: @escaping (Dictionary<String, Any>) -> Void){
